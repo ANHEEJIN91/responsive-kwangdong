@@ -313,8 +313,8 @@
       left:0;
       z-index:100;
       padding:20px 0; 
-      background:#000;
-      color:#fff;
+      background:#fff;
+      color:#000;
     }
     .aside .container{
       display:grid;
@@ -344,7 +344,7 @@
     .aside svg{
       width:32px;
       height:32px;
-      fill:#fff;
+      fill:#000;
     }
 
     
@@ -411,10 +411,70 @@
     }
 
     .sec-notice-event .container{
+      display:grid;
+      grid-template-columns:1fr;
+      gap:20px;
       padding:0;
-      max-width:1280px;
-      margin:0 auto;
-    }    
+    }
+    .sec-notice-event .sec-tit{
+      display:none;
+    }
+    .sec-notice-event .art{
+      display:grid;
+      grid-template-columns:repeat(4,1fr);
+      column-gap:20px;
+      row-gap:60px;
+      padding:50px 20px 20px;
+      background:#f1f1f1;
+    }
+    .sec-notice-event .art-tit{
+      grid-column:1/3;
+      font-weight:700;
+      font-size:24px;
+    }
+    .sec-notice-event button{
+      grid-column:3/-1;
+      border:none;
+      background:transparent;
+      font-size:14px;
+      text-align:right;
+      text-decoration:underline;
+    }
+    .sec-notice-event ul{
+      grid-column:1/-1;
+    }
+    .sec-notice-event li{
+      margin-bottom:50px;
+      border-bottom:1px solid #000;
+      padding-bottom:30px;
+    }
+    .sec-notice-event .list-tit{
+      margin-bottom:10px;
+      font-weight:700;
+      font-size:16px;
+      white-space:nowrap;
+      overflow:hidden;
+      text-overflow:ellipsis;
+    }
+    .sec-notice-event .list-para{
+      margin-bottom:8px;
+      font-size:14px;
+      white-space:nowrap;
+      overflow:hidden;
+      text-overflow:ellipsis;
+    }
+    .sec-notice-event .list-date{
+      font-size:12px;
+    }
+    .sec-notice-event .art02 li{
+      margin-bottom:20px;
+      border-bottom:none;
+      padding-bottom:0;
+    }
+    .sec-notice-event .art02 .list-tit{
+      display:none;
+    }
+
     .footer{
       margin-bottom:98px;
     }
@@ -506,8 +566,14 @@
       .sec-prod .sec-para{
         font-size:24px;
       }
-      .sec-notice-event .container{
-        padding:0 20px;
+      .sec-notice-event .art-tit{
+        font-size:32px;
+      }
+      .sec-notice-event .list-tit{
+        font-size:24px;
+      }
+      .sec-notice-event .list-para{
+        font-size:16px;
       }
       
     }
@@ -554,6 +620,11 @@
         bottom:auto;
         left:auto;
         transform:translateY(-50%);
+        background:#000;
+        color:#fff;
+      }
+      .aside svg{
+        fill:#fff
       }
       .aside .container{
         grid-template-columns:auto;
@@ -563,11 +634,15 @@
       .swiper-button-prev{
         display:block;
       }
+      
+      .sec-notice-event .container{
+        grid-template-columns:1fr 1fr;
+      }
 
       .footer .container{
        padding:0;
       }
-     
+      
     }
 
 
@@ -848,9 +923,27 @@
               <p class="list-date"><a href="#">2023-10-11</a></p>
             </li>
             <li>
-              <h4 class="list-tit"><a href="#">[허가변경지시] [허가변경] 부프로피온,날트렉손 성분제제(콘트라브서방정)허가사항 변경명령</a></h4>
+              <h4 class="list-tit"><a href="#">[허가변경지시] [허가변경] 다파글로플로진 함유(단일, 복합)제제(다프로디정5밀리그램 외2품목) 허가사항 변경명령</a></h4>
               <p class="list-para"><a href="#">식품의약품안전처 ‘의약품안전평가과-6473 (2023.9.13)’에 따른 허가변경지시를 아래와 같이 알려드립니다.</a></p>
               <p class="list-date"><a href="#">2023-09-25</a></p>
+            </li>
+          </ul>
+        </article>
+        <article class="art art02 art-event">
+          <h3 class="art-tit">이벤트</h3>
+          <button>View More</button>
+          <ul>
+            <li>
+              <h4 class="list-tit"><a href="#">비타500 zero 출시 이벤트</a></h4>
+              <div class="img-box"><a href="#"><img src="./images/img-even01.jpg" alt="비타500zero"></a></div>
+            </li>
+            <li>
+              <h4 class="list-tit"><a href="#">연말 효도 이벤트</a></h4>
+              <div class="img-box"><a href="#"><img src="./images/img-even02.jpg" alt="우황청심원"></a></div>
+            </li>
+            <li>
+              <h4 class="list-tit"><a href="#">수험생 이벤트</a></h4>
+              <div class="img-box"><a href="#"><img src="./images/img-even03.jpg" alt="경옥고"></a></div>
             </li>
           </ul>
         </article>
@@ -858,7 +951,44 @@
     </section>
     <footer class="footer">
       <div class="container">
-        footer
+        <div class="footer-top footer-item">
+          <div class="footer-logo">
+            <a href="./index.html">
+              <div class="img-box"><img src="./images/logo-white.png" alt="광동제약 로고2"></div>
+              <span>Kwangdong</span>
+              <span>광동제약</span>
+          </div>
+          <ul>
+            <li><a href="#">개인정보처리방침</a></li>
+            <li><a href="#">채용정보</a></li>
+            <li><a href="#">오시는 길</a></li>
+          </ul>
+        </div>
+        <div class="footer-middle footer-item">
+          <address>
+            <p>서울서초구 서초중앙로 85 가산빌딩 T 02-6006-7777</p>
+            <p>COPYRIGHT(C) KWANG DONG PHARMACEUTICAL CO., LTD. ALL RIGHTS RESERVED</p>
+          </address>
+        </div>
+        <div class="footer-buttom footer-item">
+          <form action="#">
+            <select>
+              <option>광동제약 SNS</option>
+              <option>광동제약 인스타그램</option>
+              <option>비타500 인스타그램</option>
+              <option>광동 온더 인스타그램</option>
+              <option>광동제약 유튜브</option>
+              <option>광동재약 페이스북</option>
+            </select>
+            <select>
+              <option>패밀리 사이트</option>
+              <option>광동상회</option>
+              <option>KD케어몰</option>
+              <option>코리아이플랫폼</option>
+              <option>광동약국몰</option>
+            </select>
+          </form>
+        </div>
       </div>
     </footer>
   </section>
