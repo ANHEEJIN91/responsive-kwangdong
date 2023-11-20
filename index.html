@@ -53,6 +53,7 @@
       right:0;
       left:0;
       z-index:1000;
+      transition:0.3s;
     }
     .header .container{
       display:grid;
@@ -60,7 +61,7 @@
       justify-content:space-between;
       align-items:start;
     }
-    .logo a,.nav-logo a{
+    .logo a,.nav-logo a,.footer-logo a{
       display:grid;
       grid-template-columns:22px 50px;
       grid-template-rows:11px;
@@ -70,10 +71,12 @@
       text-align:right;
       color:#fff;
     }
-    .logo span:first-of-type,.nav-logo span:first-of-type{
+    .logo span:first-of-type,
+    .nav-logo span:first-of-type{
       font-size:8.89px;
     }
-    .logo span:last-of-type,.nav-logo span:last-of-type{
+    .logo span:last-of-type,
+    .nav-logo span:last-of-types{
       font-size:6.42px;
       grid-area:2/2/3/3;
     }
@@ -477,11 +480,65 @@
 
     .footer{
       margin-bottom:98px;
+      background-color:#000;
+      color:#fff;
     }
     .footer .container{
       max-width:1720px;
+      position:relative;
     }
-
+    .footer-item{
+      padding:50px 0;
+    }
+    .footer-top .footer-logo,.footer-top ul{
+      display:inline-block;
+    }
+    .footer-top,.footer-middle{
+      border-bottom:2px solid #fff;
+    }
+    .footer-top .footer-logo{
+      width:150px;
+      float:left;
+    }
+    .footer-logo a{
+      grid-template-columns:44px 100px;
+      row-gap:10px;
+    }
+    .footer-logo span:first-of-type{
+      font-size:18px;
+    }
+    .footer-logo span:last-of-type{
+      font-size:14px;
+      grid-column:2/-1;
+    }
+    .footer-top ul{
+      float:right;
+    }
+    .footer-top li{
+      display:none;
+      font-weight:700;
+    }
+    .footer-top li:first-child{
+      display:inline-block;
+    }   
+    .footer-middle p{
+      margin-bottom:12px;
+      font-size:12px;
+    }
+    .footer-middle p:last-child{
+      margin-bottom:0;
+    }
+    .footer-bottom form{
+      display:grid;
+      grid-template-columns:1fr 1fr;
+      gap:20px;
+    }
+    .footer-bottom select{
+      border:1px solid #fff;
+      padding:6px;
+      background:#000;
+      color:#fff;
+    }
 
 
 
@@ -575,7 +632,19 @@
       .sec-notice-event .list-para{
         font-size:16px;
       }
-      
+      .footer{
+        margin:0;
+      }
+      .footer-bottom{
+        position:absolute;
+        right:20px;
+        top:0;
+      }
+      .footer-bottom form{
+        grid-template-columns:1fr;
+      }
+
+
     }
 
 
@@ -650,7 +719,7 @@
 </head>
 <body>
   <section id="wrap">
-    <header class="header">
+    <header class="header" id="header">
       <div class="container">
         <h1 class="logo">
           <a href="./index.html">
@@ -951,7 +1020,7 @@
     </section>
     <footer class="footer">
       <div class="container">
-        <div class="footer-top footer-item">
+        <div class="footer-top footer-item clearfix">
           <div class="footer-logo">
             <a href="./index.html">
               <div class="img-box"><img src="./images/logo-white.png" alt="광동제약 로고2"></div>
@@ -970,7 +1039,7 @@
             <p>COPYRIGHT(C) KWANG DONG PHARMACEUTICAL CO., LTD. ALL RIGHTS RESERVED</p>
           </address>
         </div>
-        <div class="footer-buttom footer-item">
+        <div class="footer-bottom footer-item">
           <form action="#">
             <select>
               <option>광동제약 SNS</option>
@@ -1011,6 +1080,19 @@
     $('#nav-close').click(function(e){
       $('#main-nav').slideUp(300);
       e.defaultPrevented();
+    })
+
+    $(window).scroll(function(){
+     let winTop = $(this).scrollTop();
+     if(winTop>=100){
+      $('#header').css({
+        background:'rgba(0,0,0,0.1)',
+      })
+     }else{
+      $('#header').css({
+        background:'rgba(0,0,0,0.0)',
+      })
+     } 
     })
 
 
