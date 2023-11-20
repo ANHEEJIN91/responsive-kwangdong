@@ -241,6 +241,7 @@
       font-weight:700;
       font-size:24px;
       color:#fff;
+      transition:0.3s;
     }
     .sec-busi .art-para{
       position:absolute;
@@ -250,9 +251,57 @@
       font-weight:700;
       font-size:16px;
       color:#fff;
+      transition:0.3s;
     }
-    
+    .sec-busi .art:hover .art-tit,.sec-busi .art:hover .art-para{
+      color:#e8340d;
+    }
 
+    .sec-dev-con .container{
+      display:grid;
+      grid-template-columns:repeat(4,1fr);
+      gap:20px;
+    }
+    .sec-dev-con .sec-tit{
+      margin-bottom:30px;
+      font-weight:700;
+      font-size:24px;
+      text-align:center;
+    }
+    .sec-dev-con .sec-tit,
+    .sec-dev-con .art{
+      grid-column:1/-1;
+    }
+    .sec-dev-con .art{
+      height:200px;
+      position:relative;
+      background-repeat:no-repeat;
+      background-position:center;
+      background-size:cover;
+    }
+    .sec-dev-con .art:hover{
+      border:5px solid #e8340d;
+    }
+    .sec-dev-con .art-tit{
+      position:absolute;
+      left:20px;
+      bottom:33px;
+      font-weight:700;
+      font-size:24px;
+      color:#fff;
+    }
+    .sec-dev-con .art01{
+      background-image:url(./images/img-div01.jpg);     
+    }
+    .sec-dev-con .art02{
+      background-image:url(./images/img-div02.jpg);     
+    }
+    .sec-dev-con .art03{
+      background-image:url(./images/img-con01.jpg);     
+    }
+    .sec-dev-con .art04{
+      background-image:url(./images/img-con02.jpg);     
+    }
     
 
 
@@ -334,13 +383,28 @@
       .sec-busi .art{
         height:50vw;
       }
+      .sec-dev-con .container{
+        grid-template-columns:repeat(8,1fr);
+      }
+      .sec-dev-con .sec-tit{
+        font-size:48px;
+      }
+      .sec-dev-con .art01,
+      .sec-dev-con .art03{
+        grid-column-end:5;
+      }
+      .sec-dev-con .art02,
+      .sec-dev-con .art04{
+        grid-column-start:5;
+      }
 
       .aside{
         display:none;
       }
       .sec-notice-event .container{
         padding:0 20px;
-      }  
+      }
+      
     }
 
 
@@ -531,7 +595,23 @@
     </section>
     <section class="sec sec03 sec-dev-con">
       <div class="container">
-        연구개발/사회공헌
+        <h2 class="sec-tit">연구개발 / 사회공헌</h2>
+        <article class="art art01">
+          <h3 class="art-tit">연구개발비젼</h3>
+          <!-- <div class="img-box art-img"><img src="./images/img-busi01.jpg" alt="일반의약품"></div> -->
+        </article>
+        <article class="art art02">
+          <h3 class="art-tit">연구성과</h3>
+          <!-- <div class="img-box art-img"><img src="./images/img-busi02.jpg" alt="전문의약품"></div> -->
+        </article>
+        <article class="art art03">
+          <h3 class="art-tit">매칭그랜트</h3>
+          <!-- <div class="img-box art-img"><img src="./images/img-busi03.jpg" alt="의약외품"></div> -->
+        </article>
+        <article class="art art04">
+          <h3 class="art-tit">가산문화재단</h3>
+          <!-- <div class="img-box art-img"><img src="./images/img-busi04.jpg" alt="건강기능식품"></div> -->
+        </article>  
       </div>
     </section>
     <section class="sec sec04 sec-prod">
