@@ -24,6 +24,8 @@
   <link rel="stylesheet" href="./css/reset.css">
   <!-- swiperjs -->
   <link rel="stylesheet" href="./css/swiper-bundle.min.css">
+  <!-- modal -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jquery-modal/0.9.2/jquery.modal.min.css" />
   <!-- font face -->
   <link rel="stylesheet" href="./css/fonts.css">
   <title>광동제약</title>
@@ -55,6 +57,9 @@
       z-index:1000;
       transition:0.3s;
     }
+    .header.active{
+      background:#000;
+    }
     .header .container{
       display:grid;
       grid-template-columns:72px 24px 24px;
@@ -71,27 +76,33 @@
       text-align:right;
       color:#fff;
     }
+    
     .logo span:first-of-type,
     .nav-logo span:first-of-type{
       font-size:8.89px;
     }
     .logo span:last-of-type,
-    .nav-logo span:last-of-types{
+    .nav-logo span:last-of-type{
       font-size:6.42px;
       grid-area:2/2/3/3;
     }
+    .blocker{
+      z-index:2000;
+      padding:0;
+    }
     .main-nav{
-      display:none;
-      position:fixed;
-      top:0;
-      right:0;
-      bottom:0;
-      left:0;
+      width:100%;
+      max-width:100%;
+      height:100%;
+      border-radius:0;
       padding:20px 0;
       background:#e8340d;
       font-weight:500;
       font-size:24px;
       color:#fff;
+    }
+    .main-nav>.close-modal{
+      display:none !important;
     }
     .main-nav .container{
       position:relative;
@@ -138,6 +149,7 @@
     .g-nav>li{
       width:100%;
       margin-bottom:36px;
+      cursor:pointer;
     }
     .g-nav>li:hover>span{
       color:#000;
@@ -182,7 +194,36 @@
     .sec-media .container{
       max-width:100%;
       padding:0;
+      position:relative;
     }
+    .sec-media .media-box{
+      position:absolute;
+      left:0;
+      right:0;
+      top:0;
+      bottom:0;
+      z-index:100;
+    }
+    .sec-media .media-box:first-child{
+      position:relative;
+      /* z-index:200; */
+    }
+    .sec-media .media-box.active{
+      z-index:200;
+    }
+    .sec-media .video-control{
+      position:absolute;
+      right:20px;
+      bottom:20px;
+      z-index:1000;
+      display:flex;
+      color:#f00;
+    }
+    .sec-media .video-control>div{
+      margin-left:20px;
+      cursor:pointer;
+    }  
+
     .sec-busi .container{
       padding:0;
       display:grid;
@@ -310,6 +351,7 @@
    
     
     .aside{
+      display:none !important;
       position:fixed;
       right:0;
       bottom:0;
@@ -540,6 +582,8 @@
       color:#fff;
     }
 
+    
+
 
 
     /* 768px이상 스타일-(테블릿) */
@@ -723,22 +767,55 @@
       <div class="container">
         <h1 class="logo">
           <a href="./index.html">
-            <div class="img-box"><img src="./images/logo.png" alt="광동제약 로고"></div>
+            <div class="img-box">
+              <img src="./images/logo.png" alt="광동제약 로고">
+            </div>
             <span>Kwangdong</span>
             <span>광동제약</span>
           </a>
         </h1>
         <div class="btn-nav">
-          <a href="#" id="nav-open">
-            <img src="./images/ico-btn-nav.svg" alt="네비게이션 호출 버튼">
+          <a href="#main-nav" rel="modal:open">
+            <!-- <img src="./images/ico-btn-nav.svg" alt="네비게이션 호출 버튼"> -->
+            <svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+              width="100px" height="99.678px" viewBox="0 0 100 99.678" enable-background="new 0 0 100 99.678" xml:space="preserve">
+            <g>
+              <path fill="#FFFFFF" d="M49.838,4.984c24.734,0,44.856,20.122,44.856,44.854c0,24.733-20.122,44.856-44.856,44.856
+                c-24.731,0-44.854-20.123-44.854-44.856C4.984,25.107,25.106,4.984,49.838,4.984 M49.838,0C22.313,0,0,22.313,0,49.838
+                c0,27.527,22.313,49.839,49.838,49.839c27.527,0,49.84-22.312,49.84-49.839C99.678,22.313,77.365,0,49.838,0L49.838,0z"/>
+              <path fill="#FFFFFF" d="M30.776,49.838c0,3.854-3.124,6.978-6.979,6.978c-3.852,0-6.976-3.124-6.976-6.978
+                c0-3.852,3.125-6.976,6.976-6.976C27.651,42.862,30.776,45.986,30.776,49.838z"/>
+              <path fill="#FFFFFF" d="M68.902,49.838c0,3.854,3.123,6.978,6.979,6.978c3.851,0,6.975-3.124,6.975-6.978
+                c0-3.852-3.124-6.976-6.975-6.976C72.025,42.862,68.902,45.986,68.902,49.838z"/>
+              <path fill="#FFFFFF" d="M42.862,49.838c0,3.854,3.124,6.978,6.976,6.978c3.854,0,6.978-3.124,6.978-6.978
+                c0-3.852-3.124-6.976-6.978-6.976C45.986,42.862,42.862,45.986,42.862,49.838z"/>
+            </g>
+            </svg>
           </a>
         </div>
         <div class="btn-lang">
-          <a href=""#>
-            <img src="./images/ico-lang.svg" alt="언어선택 버튼">
+          <a href="#">
+            <!-- <img src="./images/ico-lang.svg" alt="언어선택 버튼"> -->
+            <svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+              width="100px" height="100px" viewBox="0 0 100 100" enable-background="new 0 0 100 100" xml:space="preserve">
+            <path fill="#FFFFFF" d="M50,0C22.386,0,0,22.386,0,50s22.386,50,50,50s50-22.386,50-50S77.614,0,50,0z M5.092,52.75h19.199
+              c0.168,6.012,0.883,11.738,2.05,17H9.577C7.032,64.563,5.46,58.816,5.092,52.75z M52.5,25.75V5.399
+              c5.643,1.731,11.316,9.15,14.806,20.351H52.5z M68.65,30.75c1.179,5.105,1.925,10.815,2.07,17H52.5v-17H68.65z M47.5,5.399V25.75
+              H32.694C36.184,14.549,41.858,7.13,47.5,5.399z M47.5,30.75v17H29.279c0.146-6.185,0.892-11.895,2.071-17H47.5z M24.279,47.75H5.057
+              c0.3-6.057,1.806-11.8,4.278-17H26.23C25.097,36.021,24.417,41.748,24.279,47.75z M29.293,52.75H47.5v17H31.465
+              C30.251,64.656,29.472,58.944,29.293,52.75z M47.5,74.75v19.851c-5.557-1.704-11.142-8.932-14.644-19.851H47.5z M52.5,94.601V74.75
+              h14.644C63.642,85.669,58.057,92.896,52.5,94.601z M52.5,69.75v-17h18.207c-0.179,6.194-0.958,11.906-2.172,17H52.5z M75.71,52.75
+              h19.198c-0.368,6.066-1.939,11.813-4.484,17H73.659C74.826,64.488,75.542,58.762,75.71,52.75z M75.721,47.75
+              c-0.137-6.002-0.817-11.729-1.951-17h16.896c2.472,5.2,3.979,10.943,4.278,17H75.721z M87.877,25.75H72.519
+              c-2.226-7.777-5.488-14.277-9.426-18.802C73.412,10.093,82.162,16.855,87.877,25.75z M36.908,6.948
+              c-3.938,4.525-7.201,11.024-9.427,18.802H12.123C17.837,16.855,26.588,10.093,36.908,6.948z M12.444,74.75h15.186
+              c2.222,7.555,5.426,13.875,9.279,18.302C26.781,89.966,18.163,83.398,12.444,74.75z M63.093,93.052
+              c3.853-4.427,7.057-10.747,9.278-18.302h15.186C81.838,83.398,73.219,89.966,63.093,93.052z"/>
+            </svg>
+
           </a>
         </div>
-        <nav class="main-nav" id="main-nav">
+        <nav class="main-nav modal" id="main-nav">
           <div class="container">
             <h2 class="nav-logo">
               <a href="./index.html">
@@ -748,7 +825,7 @@
               </a>
             </h2>
             <div class="btn-nav-close clearfix">
-              <div class="btn-close" id="nav-close">닫기</div>
+              <a href="#close-modal" style="display:block;" class="btn-close" id="nav-close" rel="modal:close">닫기</a>
             </div>
             <ul class="g-nav">
               <li>
@@ -821,8 +898,23 @@
     </header>
     <section class="sec sec01 sec-media">
       <div class="container">
-        <div class="media-box">
-          <video src="./media/med-vita.mp4"></video>
+        <div class="video-box">  
+          <div class="media-box active" id="con">
+            <video src="./media/med-con.mp4" autoplay muted></video>
+          </div>
+          <div class="media-box" id="samda">
+            <video src="./media/med-samda.mp4" muted></video>
+          </div>
+          <div class="media-box" id="vita">
+            <video src="./media/med-vita.mp4" muted></video>
+          </div>
+        </div>
+        <div class="video-control">
+          <div class="video-play=stop">멈춤</div>
+          <div class="audio-play=stop">켜기</div>
+          <div class="btn-video btn-video01" id="btn-con">옥수수수염차</div>
+          <div class="btn-video btn-video02" id="btn-samda">삼다수</div>
+          <div class="btn-video btn-video03" id="btn-vita">비타500</div>
         </div>
       </div>
     </section>
@@ -1071,29 +1163,127 @@
   <script src="./js/jquery.js"></script>
   <!-- swiperjs-->
   <script src="./js/swiper-bundle.min.js"></script>
+  <!-- modal -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-modal/0.9.2/jquery.modal.min.js"></script>
+
+
   <!-- 사용자정의 스크립트 -->
   <script>
-    $('#nav-open').click(function(e){
-      $('#main-nav').slideDown(300);
-      e.defaultPrevented();
-    })
+    //====== 함수 =========
+    // 비디오를 뒤로 보내는 함수
+    function videoBack(){
+      $('media-box').removeClass('active');
+    } 
+    // 비디오 앞으로 가져오기 함수
+    function videoFront(el){
+      el.addClass('active');
+    }
+    // 비디오 멈춤 함수
+    function videoStop(){
+      $('video')[0].pause();
+      $('video')[1].pause();
+      $('video')[2].pause();
+    }
+    // 비디오 재생 함수
+    function videoPlay(){
+      $('active viedeo')[0].play();
+    }
+    // 오디오 재생 함수
+    function audioPlay(){
+      $('active viedeo').prop('muted',false);
+    }
+    // 오디오 멈춤 함수
+    function audioStop(){
+      $('active viedeo').prop('muted',true);
+    }
+
+
+
+
+
+    // 네비게이션 클로즈 이벤트
     $('#nav-close').click(function(e){
-      $('#main-nav').slideUp(300);
-      e.defaultPrevented();
+      $('.sub-nav').hide();
+      e.preventDefault();
+    })
+    
+    // 네비게이션 항목 클릭 이벤트
+    $('.g-nav>li').click(function(){
+      $('.g-nav>li>.sub-nav').hide(300);
+      $(this).children('.sub-nav').slideDown(300);  
+    })
+  
+    // 윈도우 스크롤 이벤트
+    $(window).scroll(function(){
+      let winTop = $(this).scrollTop(); 
+      if(winTop>=100){
+        // $('#header').css({
+        //   background:'rgba(0,0,0,1)',
+        // })
+        $('#header').addClass('active');
+      }else{
+        // $('#header').css({
+        //   background:'rgba(0,0,0,0)',
+        // })
+        $('#header').removeClass('active');
+      }
     })
 
-    $(window).scroll(function(){
-     let winTop = $(this).scrollTop();
-     if(winTop>=100){
-      $('#header').css({
-        background:'rgba(0,0,0,0.1)',
-      })
-     }else{
-      $('#header').css({
-        background:'rgba(0,0,0,0.0)',
-      })
-     } 
+    // 미디어 선택 이벤트
+    $('#btn-con').click(function(){
+      videoBack();
+      videoFront($('#con'));
+      videoStop();
+      videoPlay();
     })
+   
+
+    $('#btn-samda').click(function(){
+      videoBack();
+      videoFront($('#samda'));
+      videoStop();
+      videoPlay();
+    })
+    
+
+    $('#btn-vita').click(function(){
+      videoBack();
+      videoFront($('#vita'));
+      videoStop();
+      videoPlay();
+    })
+     
+    
+    // 재생 멈춤 이벤트
+    // 멈춤 이벤트
+    $('#video-pause').click(function(){
+      videoStop();
+      // $('.active>video')[0].pause();
+      $(this).hide();
+      $('#video-play').show();
+    })
+
+    // 재생 이벤트
+    $('#video-play').click(function(){
+      videoPlay();
+      // $('.active>video')[0].play();
+      $(this).hide();
+      $('#video-pause').show();
+    })
+
+
+    // 소리 멈춤 재생 이벤트
+    $('$sound-play').click(function(){
+      $('.active video')[0].prop('muted',false);
+      $(this).hide();
+      $('#sound-pause').show();
+    })
+    $('$sound-pause').click(function(){
+      $('video').prop('muted',true);
+      $(this).hide();
+      $('#sound-play').show();
+    })
+
 
 
 
