@@ -1232,6 +1232,20 @@
 
   <!-- 사용자정의 스크립트 -->
   <script>   
+     window.onscroll = function(){
+      const aniTit = document.querySelectorAll('.ani-tit');
+      const busiArt = document.querySelectorAll('.sec-busi .art');
+      const devConArt = document.querySelectorAll('.sec-dev-con .art');
+      const notEvent = document.querySelectorAll('.sec-notice-event .art');
+      const elHeader = document.getElementById('header');
+
+      fnAnimation(aniTit);
+      fnAnimation(busiArt); 
+      fnAnimation(devConArt);
+      fnAnimation(notEvent);
+      fnHeader(elHeader);    
+    }
+     
     // 비디오 멈춤 재생 버튼 이벤트
     $('#btn-video').click(function(){
       if($(this).text()=='멈춤'){
@@ -1248,7 +1262,6 @@
         audioStop();
       }
     })
-
     // 옥수수 이벤트
     // $('#btn-con').click(function(){
     //   videoBack();
@@ -1296,35 +1309,62 @@
       audioStop();
       videoLoop();
     })
-
-
     // 네비게이션 클로즈 이벤트
     $('#nav-close').click(function(e){
       $('.sub-nav').hide();
       e.preventDefault();
     })
-    
     // 네비게이션 항목 클릭 이벤트
     $('.g-nav>li').click(function(){
       $('.g-nav>li>.sub-nav').hide(300);
       $(this).children('.sub-nav').slideDown(300);  
     })
-  
-   
-    window.onscroll = function(){
-      const aniTit = document.querySelectorAll('.ani-tit');
-      const busiArt = document.querySelectorAll('.sec-busi .art');
-      const devConArt = document.querySelectorAll('.sec-dev-con .art');
-      const notEvent = document.querySelectorAll('.sec-notice-event .art');
-      const elHeader = document.getElementById('header');
 
-      fnAnimation(aniTit);
-      fnAnimation(busiArt); 
-      fnAnimation(devConArt);
-      fnAnimation(notEvent);
-      fnHeader(elHeader);    
+    
+    for(let cnt=1; cnt<=4; cnt++){
+      $('.dev-con-art').prepend('<span></span>');
     }
-      
+    
+    $('.dev-con-art span').css({
+      position:'absolute',
+      background:'#ff0000',
+    })
+
+    fnBorder();
+
+    $('.dev-con-art').mouseenter(function(){
+      $(this).children('span').eq(0).delay(0).animate({
+        width:'100%',
+      },300)
+      $(this).children('span').eq(1).delay(300).animate({
+        height:'100%',
+      },200)
+      $(this).children('span').eq(2).delay(500).animate({
+        width:'100%',
+      },300)
+      $(this).children('span').eq(3).delay(800).animate({
+        height:'100%',
+      },200)
+    })
+    $('.dev-con-art').mouseleave(function(){
+      $(this).children('span').eq(0).stop().delay(0).animate({
+        width:'0',
+      },0)
+      $(this).children('span').eq(1).stop().delay(0).animate({
+        height:'0',
+      },0)
+      $(this).children('span').eq(2).stop().delay(0).animate({
+        width:'0',
+      },0)
+      $(this).children('span').eq(3).stop().delay(0).animate({
+        height:'0',
+      },0)
+    })
+  
+
+
+
+
 
     // swiperjs
     const swiper = new Swiper('.swiper', {
@@ -1365,6 +1405,8 @@
       },
     });
    
+
+
   </script>
 </body>
 </html>
