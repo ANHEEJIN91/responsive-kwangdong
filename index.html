@@ -1318,16 +1318,10 @@
 
 
 
-    //   if(scrTop>=100){
-    //     $('#header,.sec-busi').addClass('active');
-
-    //   }else{
-    //     $('#header,.sec-busi').removeClass('active');
-    //   }
-    // })
 
 
     window.onscroll = function(){
+      // 타이틀 애니메이션
       const aniTit = document.querySelectorAll('.ani-tit');
       let scrTop = document.querySelector('html').scrollTop;
       let winHeight = window.innerHeight;  
@@ -1341,8 +1335,15 @@
           aniTit[idx].classList.remove('active');
         }
       }
-      
 
+      // 헤더 애니메이션
+      let elHeight = document.getElementById('header');
+      if(scrTop>=100){
+        elHeight.classList.add('active')
+      }else{
+        elHeight.classList.remove('active')
+      }
+    
 
     }
       
