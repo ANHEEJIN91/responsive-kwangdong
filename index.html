@@ -6,35 +6,26 @@
   <meta name="description" content="광동제약은 새로운 가치를 창출하여 고객의 건강한 삶에 기여한다">
   <meta name="keywords" content="제약사, 비타500, 우황청심원, 삼다수">
   <meta name="actor" content="An Hee Jin">
-  <!-- 오픈그래픽 -->
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://anheejin91.github.io/responsive-kwangdong/">
   <meta property="og:image" content="./images/og.jpg">
   <meta property="og:title" content=""광동제약>
   <meta property="og:description" content="광동제약은 새로운 가치를 창출하여 고객의 건강한 삶에 기여한다">
-  <!-- 트위터카드 -->
   <meta name="twitter:card" content="summary">
   <meta name="twitter:url" content="https://anheejin91.github.io/responsive-kwangdong/">
   <meta name="twitter:image" content="./images/og.jpg">
   <meta name="twitter:title" content="광동제약">
   <meta name="twitter:description" content="광동제약은 새로운 가치를 창출하여 고객의 건강한 삶에 기여한다">
-  <!-- favicon -->
   <link rel="shortcut icon" href="./favicon.png" type="image/x-icon">
-  <!-- css -->
   <link rel="stylesheet" href="./css/reset.css">
-  <!-- swiperjs -->
   <link rel="stylesheet" href="./css/swiper-bundle.min.css">
-  <!-- modal -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jquery-modal/0.9.2/jquery.modal.min.css" />
-  <!-- font face -->
   <link rel="stylesheet" href="./css/fonts.css">
   <link rel="stylesheet" href="./css/header.css">
   <link rel="stylesheet" href="./css/aside.css">
   <link rel="stylesheet" href="./css/footer.css">
   <title>광동제약</title>
-  <!-- 사용자정의 스타일 -->
   <style>
-    /* 기본스타일(모바일) */    
     .sec-media{
       position:relative;
       z-index:10;      
@@ -345,7 +336,6 @@
       display:none;
     }
         
-    /* 768px이상 스타일-(테블릿) */
     @media (min-width:768px){     
       .sec-busi .container{
         grid-template-areas:
@@ -404,7 +394,6 @@
       }          
     }
     
-    /* 1280px이상 스타일-(데스크탑) */
     @media (min-width:1280px){
            .sec-busi .container{
         padding:0 20px;
@@ -824,15 +813,12 @@
       </div>
     </footer>
   </section>
-  <!-- 라이브러리 -->
+  
   <script src="./js/jquery.js"></script>
-  <!-- swiperjs-->
   <script src="./js/swiper-bundle.min.js"></script>
-  <!-- modal -->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-modal/0.9.2/jquery.modal.min.js"></script>
   <script src="./js/function.js"></script>
 
-  <!-- 사용자정의 스크립트 -->
   <script>   
      window.onscroll = function(){
       const aniTit = document.querySelectorAll('.ani-tit');
@@ -847,51 +833,47 @@
       fnAnimation(notEvent);
       fnHeader(elHeader);    
     }
+   
+
     // 비디오 멈춤 재생 버튼 이벤트
     $('#btn-video').click(function(){
-      if($(this).text()=='멈춤'){
-        videoStop();
-      }else{
-        videoPlay();
-      }
+      fnVideoPS(this);
     })
-     // 오디오 멈춤 재생 버튼 이벤트
+    
+    // 오디오 멈춤 재생 버튼 이벤트
      $('#btn-audio').click(function(){
-      if($(this).text()=='켜기'){
-        audioPlay();
-      }else{
-        audioStop();
-      }
+      fnAudioPS(this);      
     })
+   
     // 옥수수 이벤트
-    // $('#btn-con').click(function(){
-    //   videoBack();
-    //   videoFront($('#con'));
-    //   videoStop();
-    //   videoPlay();
-    //   audioStop();
-    //   videoLoop();
-    // })
+    $('#btn-con').click(function(){
+      videoBack();
+      videoFront($('#con'));
+      videoStop();
+      videoPlay();
+      audioStop();
+      videoLoop();
+    })
 
     // 삼다수 이벤트
-    // $('#btn-samda').click(function(){
-    //   videoBack();
-    //   videoFront($('#samda'));
-    //   videoStop();
-    //   videoPlay();
-    //   audioStop();
-    //   videoLoop();
-    // })
+    $('#btn-samda').click(function(){
+      videoBack();
+      videoFront($('#samda'));
+      videoStop();
+      videoPlay();
+      audioStop();
+      videoLoop();
+    })
 
     // 비타500 이벤트
-    // $('#btn-vita').click(function(){
-    //   videoBack();
-    //   videoFront($('#vita'));
-    //   videoStop();
-    //   videoPlay();
-    //   audioStop();
-    //   videoLoop();
-    // })
+    $('#btn-vita').click(function(){
+      videoBack();
+      videoFront($('#vita'));
+      videoStop();
+      videoPlay();
+      audioStop();
+      videoLoop();
+    })
 
     // 비디오보기 이벤트
     $('.btn-video').click(function(){
@@ -910,11 +892,13 @@
       audioStop();
       videoLoop();
     })
+   
     // 네비게이션 클로즈 이벤트
     $('#nav-close').click(function(e){
       $('.sub-nav').hide();
       e.preventDefault();
     })
+   
     // 네비게이션 항목 클릭 이벤트
     $('.g-nav>li').click(function(){
       $('.g-nav>li>.sub-nav').hide(300);
