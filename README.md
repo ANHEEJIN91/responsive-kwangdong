@@ -12,4 +12,4 @@ Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem
 
 [구글링크](https://www.google.com)
 
-![image](https://github.com/ANHEEJIN91/responsive-kwangdong/assets/143384496/b54767c6-b5a9-4d5c-8327-031340446b07)]
+![image]
